@@ -40,7 +40,6 @@ db.exec(`
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
 `);
-
 // Safe migration for databases created before authentication existed.
 const taskColumns = db.prepare('PRAGMA table_info(tasks)').all();
 if (!taskColumns.some((column) => column.name === 'user_id')) {
